@@ -3,22 +3,23 @@ let attempt = document.getElementById('attempt');
 
 function guess() {
     let input = document.getElementById('user-guess');
+    // console.log(attempt.value);
     //add functionality to guess function here
-    if(answer.value == ' ' || attempt == ' ' || answer.value == '' || attempt == '') {
+    if(answer.value == ' ' || attempt.value == ' ' || answer.value == '' || attempt.value == '') {
         setHiddenFields();
     }
     if(!validateInput(input.value)) {
         return false;
     }
     else {
-        attempt = attempt+1;
+        document.getElementById('attempt').value = parseInt(attempt.value)+1;
     }
     if(getResults(input.value)) {
         setMessage("You Win! :)");
         showAnswer(true);
         showReplay();
     }
-    else if ((attempt==10)&&(!getResults(input.value))){
+    else if ((attempt.value==10)&&(!getResults(input.value))){
         setMessage("You Lose! :(");
         showAnswer(false);
         showReplay();
@@ -36,7 +37,7 @@ function setHiddenFields() {
         tempval = '0'+ tempval;
     }
     answer.value = tempval;
-    attempt = 0;
+    attempt.value = 0;
 }
 
 function setMessage( mymessage) {
@@ -82,7 +83,7 @@ function getResults(param) {
              }
         }
     }
-    if(attempt<1) {
+    if(attempt.value<1) {
         document.getElementById('results').innerHTML =  heading + myguess + hint;    
     }
     else {
