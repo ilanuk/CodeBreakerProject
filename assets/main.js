@@ -5,7 +5,7 @@ function guess() {
     let input = document.getElementById('user-guess');
     // console.log(attempt.value);
     //add functionality to guess function here
-    if(answer.value == ' ' || attempt.value == ' ' || answer.value == '' || attempt.value == '') {
+    if(answer.value == '' || attempt.value == '') {
         setHiddenFields();
     }
     if(!validateInput(input.value)) {
